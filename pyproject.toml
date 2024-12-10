@@ -1,0 +1,44 @@
+[project]
+name = "adventr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Johnny Nazario", email = "jlnazario@hotmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "attrs>=24.2.0",
+    "jinja2>=3.1.4",
+    "rich>=13.9.4",
+    "typer>=0.15.1",
+]
+
+[project.scripts]
+adventr = "adventr._cli.app:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["A", "B", "C", "E4", "E7", "E9", "F", "I", "PT", "PYI", "Q", "R", "RUF", "T", "W"]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+known-first-party = ["adventr"]
+lines-between-types = 1
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[dependency-groups]
+dev = [
+    "pytest-mock>=3.14.0",
+    "pytest>=8.3.4",
+]
